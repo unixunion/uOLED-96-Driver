@@ -8,11 +8,11 @@ Based off snipped from here and there.
 
 ## Connections
 
-uOLED tx <----> Arduino rx (d0)
-uOLED rx <----> Arduino tx (d1)
-uOLED gnd <---> GND
-uOLED 5v <----> 5V
-uOLED rst <---> (d8)
+ uOLED tx <----> Arduino rx (d0)
+ uOLED rx <----> Arduino tx (d1)
+ uOLED gnd <---> GND
+ uOLED 5v <----> 5V
+ uOLED rst <---> (d8)
 
 ## Changelog
 
