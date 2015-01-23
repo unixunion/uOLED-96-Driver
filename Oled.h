@@ -59,6 +59,10 @@
 
 #define OLED_TEXTBUTTON			0x62
 #define OLED_HWINFO				0x56
+#define OLED_SPCMD				0x24
+#define OLED_SCROLL_ENABLE	 	0x53
+#define OLED_SCROLL 			0x00
+#define OLED_SCROLL_SPEED		0x02
 
 class OLED
 {
@@ -85,6 +89,8 @@ class OLED
 	uint8_t DisplayBitChar(uint8_t slot, uint8_t x, uint8_t y, unsigned int color);
 	uint8_t DrawButton(bool state, uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t font_size, uint8_t button_colour, uint8_t text_colour, char* text);
 	uint8_t HWInfo();
+	uint8_t ScrollEnable(bool enable);
+	uint8_t ScrollSpeed(uint8_t speed);
 	
   private:
 	uint8_t _pinReset;

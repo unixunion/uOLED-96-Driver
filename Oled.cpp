@@ -247,6 +247,8 @@ uint8_t OLED::DisplayBitChar(uint8_t slot, uint8_t x, uint8_t y, unsigned int co
 
 }
 
+// NOTE: w and h are multipliers for font magnification! eg, use w:1 and h:1 to keep the font the same size
+// eg: myOLED.DrawButton(0,1,1,1,1,OLED_FONT5X7,10,150,"T");
 uint8_t OLED::DrawButton(bool state, uint8_t x, uint8_t y, uint8_t w, uint8_t h, uint8_t font_size, uint8_t button_colour, uint8_t text_colour, char* text)
 {
 	Serial.write(OLED_TEXTBUTTON);
@@ -279,8 +281,29 @@ uint8_t OLED::HWInfo()
 {
 	Serial.write(OLED_HWINFO);
 	Serial.write(1);
-	// Serial.write(0x00);
+	GetResponse();
 }
+
+uint8_t OLED::ScrollEnable(bool enable)
+{
+	Serial.write(OLED_SPCMD);
+	Serial.write(OLED_SCROLL_ENABLE);
+	Serial.write(0x00);
+	Serial.write(enable);
+	GetResponse();
+}
+
+uint8_t OLED::ScrollSpeed(uint8_t speed)
+{
+	Serial.write(OLED_SPCMD);
+	Serial.write(OLED_SCROLL_SPEED);
+	Serial.write(0x02);
+	Serial.write(speed);
+	GetResponse();
+}
+
+
+
 
 
 
